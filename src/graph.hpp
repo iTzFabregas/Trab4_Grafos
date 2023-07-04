@@ -34,7 +34,7 @@ private:
      */
     void sort();
 
-    int void dijkstra(int origem, int destino) {(int origem, int destino);
+    int dijkstra(int origem, int destino);
 
 public:
     /**
