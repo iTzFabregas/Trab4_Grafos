@@ -6,12 +6,19 @@
 #include <list>
 #include <vector>
 #include <stack>
+#include <queue>
+#include <limits>
 
 using namespace std;
 
 struct Edge {
     int dest;
     int cost;
+};
+
+struct AncDist {
+    int ancestor;
+    int dista;
 };
 
 class Graph {
@@ -29,12 +36,15 @@ private:
     void add_edge(int v1, int v2, int c);
 
     /**
-     * @brief função para ordenar todas as listas de adjacência dos vertices
+     * @brief essa função implementa o algoritmo dikstra que calcula o
+     * menor cmainho do vertice origem até os outros vértices do grafo
      * 
+     * @param origem vértice inial para a busca pelo menor caminho
+     * @return vector<AncDist> esse vector retorna, para cada vértice,
+     * o custo mínimo para chegar até ele; e tambem é retornado o
+     * seu vertice antecessor
      */
-    void sort();
-
-    int dijkstra(int origem, int destino);
+    vector<AncDist> dijkstra(int origem);
 
 public:
     /**
